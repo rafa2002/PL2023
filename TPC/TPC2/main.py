@@ -2,7 +2,6 @@
 
 def terminal():
     flag_off = True
-    segmento = 1
     print("Olá imprima ON para somar\nOFF para desligar a soma\n= para somar :D ")
     lido = input()
     lido = lido.upper()
