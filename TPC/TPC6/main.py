@@ -3,6 +3,7 @@ import ply.lex as lex
 # tokens
 tokens = (
     'INT',
+    'MENOR',
     'ID',
     'FUNCTION',
     'OPENPAREN',
@@ -31,6 +32,7 @@ t_SEMICOLON = r';'
 t_EQ = r'='
 t_OPENBRACKET = r'\['
 t_CLOSEBRACKET = r'\]'
+t_MENOR = r'<'
 t_FUNCTION = r'function'
 t_WHILE = r'while'
 t_IF = r'if'
