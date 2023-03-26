@@ -5,7 +5,8 @@ tokens = (
     'INT',
     'MENOR',
     'MAIOR',
-    'ID',
+    'PLUS',
+    'MINUS',
     'FUNCTION',
     'OPENPAREN',
     'CLOSEPAREN',
@@ -23,26 +24,6 @@ tokens = (
     'PROGRAM'
 )
 
-# Expressões regulares
-t_OPENPAREN = r'\('
-t_CLOSEPAREN = r'\)'
-t_OPENBRACE = r'\{'
-t_CLOSEBRACE = r'\}'
-t_COMMA = r','
-t_SEMICOLON = r';'
-t_EQ = r'='
-t_OPENBRACKET = r'\['
-t_CLOSEBRACKET = r'\]'
-t_MENOR = r'<'
-t_MAIOR = r'>'
-t_FUNCTION = r'function'
-t_WHILE = r'while'
-t_IF = r'if'
-t_FOR = r'for'
-t_PRINT = r'print'
-t_PROGRAM = r'program'
-t_INT = r'int'
-
 # Ignorar comentário de linha
 def t_comment_line(t):
     r'\/\/+'
@@ -53,9 +34,28 @@ def t_comment_multilines(t):
     r'\/\*.*?\*\/'
     pass
 
-def t_ID(t):
-    r'[a-zA-Z_][a-zA-Z0-9_]*'
-    return t
+# Expressões regulares
+t_OPENPAREN = r'\('
+t_CLOSEPAREN = r'\)'
+t_OPENBRACE = r'\{'
+t_CLOSEBRACE = r'\}'
+t_COMMA = r','
+t_SEMICOLON = r';'
+t_EQ = r'='
+t_OPENBRACKET = r'\['
+t_CLOSEBRACKET = r'\]'
+t_MINUS = r'\-'
+t_PLUS = r'\+'
+t_MENOR = r'<'
+t_MAIOR = r'>'
+t_FUNCTION = r'function'
+t_WHILE = r'while'
+t_IF = r'if'
+t_FOR = r'for'
+t_PRINT = r'print'
+t_PROGRAM = r'program'
+t_INT = r'int'
+
 
 # Ignorar espaços em branco e tabs
 t_ignore = ' \n\t'
@@ -76,9 +76,7 @@ data1 = """
 -- 2023-03-20 
 -- by jcr
 */
-
 int i;
-
 // Função que calcula o factorial dum número n
 function fact(n){
   int res = 1;
@@ -87,7 +85,6 @@ function fact(n){
     res = res - 1;
   }
 }
-
 // Programa principal
 program myFact{
   for i in [1..10]{
@@ -101,9 +98,7 @@ data2 = """
 -- 2023-03-20 
 -- by jcr
 */
-
 int i = 10, a[10] = {1,2,3,4,5,6,7,8,9,10};
-
 // Programa principal
 program myMax{
   int max = a[0];
